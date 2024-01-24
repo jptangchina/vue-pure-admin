@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { clone } from "@pureadmin/utils";
-import { transformI18n } from "@/plugins/i18n";
 import ElTreeLine from "@/components/ReTreeLine";
 import { extractPathList, deleteChildren } from "@/utils/tree";
 import { usePermissionStoreHook } from "@/store/modules/permission";
@@ -49,7 +48,7 @@ const dataProps = {
                 <el-tree-line :node="node" :showLabelLine="true">
                   <template v-slot:node-label>
                     <span class="text-sm">
-                      {{ transformI18n(node.data.meta.title) }}
+                      {{ node.data.meta.title }}
                     </span>
                   </template>
                 </el-tree-line>
@@ -81,7 +80,7 @@ const dataProps = {
                 >
                   <template v-slot:node-label>
                     <span class="text-sm">
-                      {{ transformI18n(node.data.meta.title) }}
+                      {{ node.data.meta.title }}
                     </span>
                   </template>
                 </el-tree-line>

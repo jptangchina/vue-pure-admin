@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { guide } from "@/router/enums";
 
 export default {
@@ -6,7 +5,7 @@ export default {
   redirect: "/guide/index",
   meta: {
     icon: "guide",
-    title: $t("menus.hsguide"),
+    title: "引导页",
     rank: guide
   },
   children: [
@@ -15,7 +14,7 @@ export default {
       name: "Guide",
       component: () => import("@/views/guide/index.vue"),
       meta: {
-        title: $t("menus.hsguide")
+        title: "hsguide"
       }
     }
   ]

@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { table } from "@/router/enums";
 
 export default {
@@ -15,7 +14,7 @@ export default {
       name: "PureTable",
       component: () => import("@/views/pure-table/index.vue"),
       meta: {
-        title: $t("menus.hsPureTableBase")
+        title: "基础用法（23个示例）"
       }
     },
     {
@@ -23,7 +22,7 @@ export default {
       name: "PureTableHigh",
       component: () => import("@/views/pure-table/high.vue"),
       meta: {
-        title: $t("menus.hsPureTableHigh")
+        title: "高级用法（11个示例）"
       }
     }
   ]

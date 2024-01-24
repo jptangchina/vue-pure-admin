@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useI18n } from "vue-i18n";
 import VuePdfEmbed from "vue-pdf-embed";
 
 defineOptions({
   name: "Pdf"
 });
 
-const { t } = useI18n();
 const pdfRef = ref<any>();
 const pageCount = ref(1);
 const loading = ref(true);
@@ -51,7 +49,7 @@ const onPrint = () => {
     <div
       v-loading="loading"
       class="h-[calc(100vh-239px)]"
-      :element-loading-text="t('status.hsLoad')"
+      element-loading-text="加载中..."
     >
       <div class="flex justify-between items-center h-9">
         <div v-if="showAllPages" class="font-medium ml-1.25 text-xl">

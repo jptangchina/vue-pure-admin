@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { board } from "@/router/enums";
 const IFrame = () => import("@/layout/frameView.vue");
 
@@ -7,7 +6,7 @@ export default {
   redirect: "/board/index",
   meta: {
     icon: "artboard",
-    title: $t("menus.hsboard"),
+    title: "艺术画板",
     rank: board
   },
   children: [
@@ -16,7 +15,7 @@ export default {
       name: "FrameBoard",
       component: IFrame,
       meta: {
-        title: $t("menus.hsboard"),
+        title: "艺术画板",
         frameSrc: "https://songlh.top/paint-board/",
         extraIcon: "IF-pure-iconfont-new svg"
       }

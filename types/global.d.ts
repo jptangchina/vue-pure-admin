@@ -79,7 +79,6 @@ declare global {
     HiddenSideBar?: boolean;
     MultiTagsCache?: boolean;
     KeepAlive?: boolean;
-    Locale?: string;
     Layout?: string;
     Theme?: string;
     DarkMode?: boolean;
@@ -117,7 +116,6 @@ declare global {
     hiddenSideBar?: boolean;
     multiTagsCache?: boolean;
     keepAlive?: boolean;
-    locale?: string;
     layout?: string;
     theme?: string;
     darkMode?: boolean;
@@ -146,9 +144,6 @@ declare global {
    * `responsive-storage` 本地响应式 `storage` 的类型声明
    */
   interface ResponsiveStorage {
-    locale: {
-      locale?: string;
-    };
     layout: {
       layout?: string;
       theme?: string;

@@ -2,7 +2,6 @@
 import { ref, computed } from "vue";
 import { clone } from "@pureadmin/utils";
 import type { ElTreeV2 } from "element-plus";
-import { transformI18n } from "@/plugins/i18n";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 import { extractPathList, deleteChildren } from "@/utils/tree";
 import { usePermissionStoreHook } from "@/store/modules/permission";
@@ -38,7 +37,7 @@ const onQueryChanged = (query: string) => {
 };
 
 const filterMethod = (query: string, node: treeNode) => {
-  return transformI18n(node.meta.title)!.indexOf(query) !== -1;
+  return node.meta.title!.indexOf(query) !== -1;
 };
 </script>
 
@@ -77,7 +76,7 @@ const filterMethod = (query: string, node: treeNode) => {
       :default-expanded-keys="expandedKeys"
     >
       <template #default="{ data }">
-        <span>{{ transformI18n(data.meta.title) }}</span>
+        <span>{{ data.meta.title }}</span>
       </template>
     </el-tree-v2>
   </el-card>

@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { list } from "@/router/enums";
 
 export default {
@@ -6,7 +5,7 @@ export default {
   redirect: "/list/card",
   meta: {
     icon: "listCheck",
-    title: $t("menus.hsList"),
+    title: "列表页",
     rank: list
   },
   children: [
@@ -16,7 +15,7 @@ export default {
       component: () => import("@/views/list/card/index.vue"),
       meta: {
         icon: "card",
-        title: $t("menus.hsListCard"),
+        title: "卡片列表页",
         showParent: true
       }
     }

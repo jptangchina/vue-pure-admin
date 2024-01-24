@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { result } from "@/router/enums";
 
 export default {
@@ -6,7 +5,7 @@ export default {
   redirect: "/result/success",
   meta: {
     icon: "checkboxCircleLine",
-    title: $t("menus.hsResult"),
+    title: "结果页面",
     rank: result
   },
   children: [
@@ -15,7 +14,7 @@ export default {
       name: "Success",
       component: () => import("@/views/result/success.vue"),
       meta: {
-        title: $t("menus.hsSuccess")
+        title: "成功页面"
       }
     },
     {
@@ -23,7 +22,7 @@ export default {
       name: "Fail",
       component: () => import("@/views/result/fail.vue"),
       meta: {
-        title: $t("menus.hsFail")
+        title: "失败页面"
       }
     }
   ]

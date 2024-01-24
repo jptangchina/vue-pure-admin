@@ -1,11 +1,10 @@
-import { $t } from "@/plugins/i18n";
 import { nested } from "@/router/enums";
 
 export default {
   path: "/nested",
   redirect: "/nested/menu1/menu1-1",
   meta: {
-    title: $t("menus.hsmenus"),
+    title: "多级菜单",
     icon: "histogram",
     rank: nested
   },
@@ -13,7 +12,7 @@ export default {
     {
       path: "/nested/menu1",
       meta: {
-        title: $t("menus.hsmenu1"),
+        title: "菜单1",
         keepAlive: true
       },
       redirect: "/nested/menu1/menu1-1",
@@ -23,7 +22,7 @@ export default {
           component: () => import("@/views/nested/menu1/menu1-1/index.vue"),
           name: "Menu1-1",
           meta: {
-            title: $t("menus.hsmenu1-1"),
+            title: "菜单1-1",
             keepAlive: true
           }
         },
@@ -31,7 +30,7 @@ export default {
           path: "/nested/menu1/menu1-2",
           redirect: "/nested/menu1/menu1-2/menu1-2-1",
           meta: {
-            title: $t("menus.hsmenu1-2"),
+            title: "菜单1-2",
             keepAlive: true
           },
           children: [
@@ -41,7 +40,7 @@ export default {
                 import("@/views/nested/menu1/menu1-2/menu1-2-1/index.vue"),
               name: "Menu1-2-1",
               meta: {
-                title: $t("menus.hsmenu1-2-1"),
+                title: "菜单1-2-1",
                 keepAlive: true
               }
             },
@@ -51,7 +50,7 @@ export default {
                 import("@/views/nested/menu1/menu1-2/menu1-2-2/index.vue"),
               name: "Menu1-2-2",
               meta: {
-                title: $t("menus.hsmenu1-2-2"),
+                title: "菜单1-2-2",
                 keepAlive: true
               }
             }
@@ -62,7 +61,7 @@ export default {
           component: () => import("@/views/nested/menu1/menu1-3/index.vue"),
           name: "Menu1-3",
           meta: {
-            title: $t("menus.hsmenu1-3"),
+            title: "菜单1-3",
             keepAlive: true
           }
         }
@@ -73,7 +72,7 @@ export default {
       name: "Menu2",
       component: () => import("@/views/nested/menu2/index.vue"),
       meta: {
-        title: $t("menus.hsmenu2"),
+        title: "菜单2",
         keepAlive: true
       }
     }

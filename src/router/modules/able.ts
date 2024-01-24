@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { able } from "@/router/enums";
 
 export default {
@@ -6,7 +5,7 @@ export default {
   redirect: "/able/watermark",
   meta: {
     icon: "ubuntuFill",
-    title: $t("menus.hsAble"),
+    title: "功能",
     rank: able
   },
   children: [
@@ -15,7 +14,7 @@ export default {
       name: "WaterMark",
       component: () => import("@/views/able/watermark.vue"),
       meta: {
-        title: $t("menus.hsWatermark")
+        title: "水印"
       }
     },
     {
@@ -23,7 +22,7 @@ export default {
       name: "Print",
       component: () => import("@/views/able/print/index.vue"),
       meta: {
-        title: $t("menus.hsPrint")
+        title: "打印"
       }
     },
     {
@@ -31,7 +30,7 @@ export default {
       name: "Download",
       component: () => import("@/views/able/download.vue"),
       meta: {
-        title: $t("menus.hsDownload")
+        title: "下载"
       }
     },
     {
@@ -39,7 +38,7 @@ export default {
       name: "Excel",
       component: () => import("@/views/able/excel.vue"),
       meta: {
-        title: $t("menus.hsExcel")
+        title: "导出Excel"
       }
     },
     {
@@ -47,7 +46,7 @@ export default {
       name: "Debounce",
       component: () => import("@/views/able/debounce.vue"),
       meta: {
-        title: $t("menus.hsDebounce")
+        title: "防抖节流"
       }
     },
     {
@@ -55,7 +54,7 @@ export default {
       name: "Directives",
       component: () => import("@/views/able/directives.vue"),
       meta: {
-        title: $t("menus.hsOptimize")
+        title: "防抖、截流、复制、长按指令"
       }
     },
     {
@@ -63,7 +62,7 @@ export default {
       name: "Draggable",
       component: () => import("@/views/able/draggable.vue"),
       meta: {
-        title: $t("menus.hsdraggable"),
+        title: "拖拽",
         transition: {
           enterTransition: "animate__zoomIn",
           leaveTransition: "animate__zoomOut"
@@ -75,7 +74,7 @@ export default {
       name: "Pdf",
       component: () => import("@/views/able/pdf.vue"),
       meta: {
-        title: $t("menus.hsPdf")
+        title: "PDF预览"
       }
     },
     {
@@ -83,7 +82,7 @@ export default {
       name: "BarCode",
       component: () => import("@/views/able/barcode.vue"),
       meta: {
-        title: $t("menus.hsBarcode")
+        title: "条形码"
       }
     },
     {
@@ -91,7 +90,7 @@ export default {
       name: "QrCode",
       component: () => import("@/views/able/qrcode.vue"),
       meta: {
-        title: $t("menus.hsQrcode")
+        title: "二维码"
       }
     },
     {
@@ -99,7 +98,7 @@ export default {
       name: "MapPage",
       component: () => import("@/views/able/map.vue"),
       meta: {
-        title: $t("menus.hsmap"),
+        title: "地图",
         keepAlive: true,
         transition: {
           name: "fade"
@@ -111,7 +110,7 @@ export default {
       name: "Wavesurfer",
       component: () => import("@/views/able/wavesurfer/index.vue"),
       meta: {
-        title: $t("menus.hsWavesurfer")
+        title: "音频可视化"
       }
     },
     {
@@ -119,7 +118,7 @@ export default {
       name: "VideoPage",
       component: () => import("@/views/able/video.vue"),
       meta: {
-        title: $t("menus.hsvideo")
+        title: "视频"
       }
     },
     {
@@ -127,7 +126,7 @@ export default {
       name: "VideoFrame",
       component: () => import("@/views/able/video-frame/index.vue"),
       meta: {
-        title: $t("menus.hsVideoFrame")
+        title: "视频帧截取-wasm版"
       }
     },
     {
@@ -135,7 +134,7 @@ export default {
       name: "Danmaku",
       component: () => import("@/views/able/danmaku/index.vue"),
       meta: {
-        title: $t("menus.hsdanmaku")
+        title: "弹幕"
       }
     },
     {
@@ -143,7 +142,7 @@ export default {
       name: "InfiniteScroll",
       component: () => import("@/views/able/infinite-scroll.vue"),
       meta: {
-        title: $t("menus.hsInfiniteScroll")
+        title: "表格无限滚动"
       }
     },
     {
@@ -151,7 +150,7 @@ export default {
       name: "MenuTree",
       component: () => import("@/views/able/menu-tree.vue"),
       meta: {
-        title: $t("menus.hsMenuTree")
+        title: "菜单树结构"
       }
     },
     {
@@ -159,7 +158,7 @@ export default {
       name: "LineTree",
       component: () => import("@/views/able/line-tree.vue"),
       meta: {
-        title: $t("menus.hsLineTree")
+        title: "树形连接线"
       }
     },
     {
@@ -167,7 +166,7 @@ export default {
       name: "Typeit",
       component: () => import("@/views/able/typeit.vue"),
       meta: {
-        title: $t("menus.hstypeit")
+        title: "打字机"
       }
     },
     {
@@ -175,7 +174,7 @@ export default {
       name: "Sensitive",
       component: () => import("@/views/able/sensitive.vue"),
       meta: {
-        title: $t("menus.hsSensitive")
+        title: "敏感词过滤"
       }
     },
     {
@@ -183,7 +182,7 @@ export default {
       name: "Pinyin",
       component: () => import("@/views/able/pinyin.vue"),
       meta: {
-        title: $t("menus.hsPinyin")
+        title: "汉语拼音"
       }
     }
   ]

@@ -15,7 +15,6 @@ const include = [
   "swiper",
   "qrcode",
   "intro.js",
-  "vue-i18n",
   "vue-types",
   "js-cookie",
   "vue-tippy",

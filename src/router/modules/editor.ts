@@ -1,4 +1,3 @@
-import { $t } from "@/plugins/i18n";
 import { editor } from "@/router/enums";
 
 export default {
@@ -6,7 +5,7 @@ export default {
   redirect: "/editor/index",
   meta: {
     icon: "edit",
-    title: $t("menus.hseditor"),
+    title: "编辑器",
     rank: editor
   },
   children: [
@@ -15,7 +14,7 @@ export default {
       name: "Editor",
       component: () => import("@/views/editor/index.vue"),
       meta: {
-        title: $t("menus.hseditor"),
+        title: "编辑器",
         keepAlive: true
       }
     }

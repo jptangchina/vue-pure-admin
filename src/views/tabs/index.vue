@@ -7,7 +7,6 @@ import {
 import { useDetail } from "./hooks";
 import { ref, computed } from "vue";
 import { clone } from "@pureadmin/utils";
-import { transformI18n } from "@/plugins/i18n";
 import { useMultiTagsStoreHook } from "@/store/modules/multiTags";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 
@@ -94,7 +93,7 @@ function onCloseTags() {
       filterable
       default-expand-all
       :props="{
-        label: data => transformI18n(data.meta.title),
+        label: data => data.meta.title,
         value: 'uniqueId',
         children: 'children',
         disabled: 'disabled'
@@ -102,7 +101,7 @@ function onCloseTags() {
       :data="treeData"
     >
       <template #default="{ data }">
-        <span>{{ transformI18n(data.meta.title) }}</span>
+        <span>{{ data.meta.title }}</span>
       </template>
     </el-tree-select>
     <el-button class="m-2" @click="onCloseTags">关闭标签</el-button>

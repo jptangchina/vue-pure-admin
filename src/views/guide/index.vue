@@ -35,14 +35,6 @@ const onGuide = () => {
           position: "left"
         },
         {
-          element: document.querySelector("#header-translation") as
-            | string
-            | HTMLElement,
-          title: "国际化",
-          intro: "您可以在这里进行语言切换",
-          position: "left"
-        },
-        {
           element: document.querySelector(".set-icon") as string | HTMLElement,
           title: "项目配置",
           intro: "您可以在这里查看项目配置",

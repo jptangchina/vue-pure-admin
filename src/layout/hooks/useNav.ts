@@ -6,12 +6,10 @@ import userAvatar from "@/assets/user.jpg";
 import { getTopMenu } from "@/router/utils";
 import { useGlobal } from "@pureadmin/utils";
 import type { routeMetaType } from "../types";
-import { transformI18n } from "@/plugins/i18n";
 import { router, remainingPaths } from "@/router";
 import { computed, type CSSProperties } from "vue";
 import { useAppStoreHook } from "@/store/modules/app";
 import { useUserStoreHook } from "@/store/modules/user";
-import { useEpThemeStoreHook } from "@/store/modules/epTheme";
 import { usePermissionStoreHook } from "@/store/modules/permission";
 
 const errorInfo = "当前路由配置不正确，请检查配置";
@@ -38,22 +36,6 @@ export function useNav() {
     return useUserStoreHook()?.username;
   });
 
-  /** 设置国际化选中后的样式 */
-  const getDropdownItemStyle = computed(() => {
-    return (locale, t) => {
-      return {
-        background: locale === t ? useEpThemeStoreHook().epThemeColor : "",
-        color: locale === t ? "#f4f4f5" : "#000"
-      };
-    };
-  });
-
-  const getDropdownItemClass = computed(() => {
-    return (locale, t) => {
-      return locale === t ? "" : "dark:hover:!text-primary";
-    };
-  });
-
   const avatarsStyle = computed(() => {
     return username.value ? { marginRight: "10px" } : "";
   });
@@ -78,8 +60,8 @@ export function useNav() {
   /** 动态title */
   function changeTitle(meta: routeMetaType) {
     const Title = getConfig().Title;
-    if (Title) document.title = `${transformI18n(meta.title)} | ${Title}`;
-    else document.title = transformI18n(meta.title);
+    if (Title) document.title = `${meta.title} | ${Title}`;
+    else document.title = meta.title;
   }
 
   /** 退出登录 */
@@ -150,8 +132,6 @@ export function useNav() {
     username,
     userAvatar,
     avatarsStyle,
-    tooltipEffect,
-    getDropdownItemStyle,
-    getDropdownItemClass
+    tooltipEffect
   };
 }

@@ -30,12 +30,7 @@ export function useDetail() {
         name: "TabQueryDetail",
         query: parameter,
         meta: {
-          title: {
-            zh: `No.${parameter.id} - 详情信息`,
-            en: `No.${parameter.id} - DetailInfo`
-          },
-          // 如果使用的是非国际化精简版title可以像下面这么写
-          // title: `No.${index} - 详情信息`,
+          title: `No.${parameter.id} - 详情信息`,
           // 最大打开标签数
           dynamicLevel: 3
         }
@@ -48,12 +43,7 @@ export function useDetail() {
         name: "TabParamsDetail",
         params: parameter,
         meta: {
-          title: {
-            zh: `No.${parameter.id} - 详情信息`,
-            en: `No.${parameter.id} - DetailInfo`
-          }
-          // 如果使用的是非国际化精简版title可以像下面这么写
-          // title: `No.${index} - 详情信息`,
+          title: `No.${parameter.id} - 详情信息`
         }
       });
       router.push({ name: "TabParamsDetail", params: parameter });

@@ -1,5 +1,5 @@
 <template>
-  <el-config-provider :locale="currentLocale">
+  <el-config-provider>
     <router-view />
     <ReDialog />
   </el-config-provider>
@@ -9,20 +9,13 @@
 import { defineComponent } from "vue";
 import { checkVersion } from "version-rocket";
 import { ElConfigProvider } from "element-plus";
-import en from "element-plus/dist/locale/en.mjs";
 import { ReDialog } from "@/components/ReDialog";
-import zhCn from "element-plus/dist/locale/zh-cn.mjs";
 
 export default defineComponent({
   name: "app",
   components: {
     [ElConfigProvider.name]: ElConfigProvider,
     ReDialog
-  },
-  computed: {
-    currentLocale() {
-      return this.$storage.locale?.locale === "zh" ? zhCn : en;
-    }
   },
   beforeCreate() {
     const { version, name: title } = __APP_INFO__.pkg;

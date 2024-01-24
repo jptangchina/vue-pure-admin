@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { useI18n } from "vue-i18n";
 import { useRoute } from "vue-router";
 
 defineOptions({
@@ -8,15 +7,14 @@ defineOptions({
 });
 
 const input = ref("");
-const { t } = useI18n();
 const { query } = useRoute();
 </script>
 
 <template>
   <div class="dark:text-white">
-    <p>{{ t("menus.hsmenu1") }}</p>
-    <p style="text-indent: 2em">{{ t("menus.hsmenu1-2") }}</p>
-    <p style="text-indent: 4em">{{ t("menus.hsmenu1-2-2") }}</p>
+    <p>菜单1</p>
+    <p style="text-indent: 2em">菜单1-2</p>
+    <p style="text-indent: 4em">菜单1-2-2</p>
     <el-input v-model="input" />
 
     <div v-if="query.text" class="mt-4">

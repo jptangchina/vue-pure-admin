@@ -1,11 +1,10 @@
-import { $t } from "@/plugins/i18n";
 import { menuoverflow } from "@/router/enums";
 
 export default {
   path: "/menuoverflow",
   redirect: "/menuoverflow/index",
   meta: {
-    title: $t("menus.hsMenuoverflow"),
+    title: "目录超出显示 Tooltip 文字提示",
     rank: menuoverflow
   },
   children: [
@@ -14,7 +13,7 @@ export default {
       name: "MenuOverflow",
       component: () => import("@/views/menuoverflow/index.vue"),
       meta: {
-        title: $t("menus.hsChildMenuoverflow"),
+        title: "菜单超出显示 Tooltip 文字提示",
         showParent: true
       }
     }

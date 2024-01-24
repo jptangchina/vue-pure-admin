@@ -12,7 +12,7 @@ const systemRouter = {
   path: "/system",
   meta: {
     icon: "setting",
-    title: "menus.hssysManagement",
+    title: "系统管理",
     rank: system
   },
   children: [
@@ -21,7 +21,7 @@ const systemRouter = {
       name: "SystemUser",
       meta: {
         icon: "flUser",
-        title: "menus.hsUser",
+        title: "用户管理",
         roles: ["admin"]
       }
     },
@@ -30,7 +30,7 @@ const systemRouter = {
       name: "SystemRole",
       meta: {
         icon: "role",
-        title: "menus.hsRole",
+        title: "角色管理",
         roles: ["admin"]
       }
     },
@@ -39,7 +39,7 @@ const systemRouter = {
       name: "SystemDept",
       meta: {
         icon: "dept",
-        title: "menus.hsDept",
+        title: "部门管理",
         roles: ["admin"]
       }
     }
@@ -49,7 +49,7 @@ const systemRouter = {
 const permissionRouter = {
   path: "/permission",
   meta: {
-    title: "menus.permission",
+    title: "权限管理",
     icon: "lollipop",
     rank: permission
   },
@@ -58,7 +58,7 @@ const permissionRouter = {
       path: "/permission/page/index",
       name: "PermissionPage",
       meta: {
-        title: "menus.permissionPage",
+        title: "页面权限",
         roles: ["admin", "common"]
       }
     },
@@ -66,7 +66,7 @@ const permissionRouter = {
       path: "/permission/button/index",
       name: "PermissionButton",
       meta: {
-        title: "menus.permissionButton",
+        title: "按钮权限",
         roles: ["admin", "common"],
         auths: ["btn_add", "btn_edit", "btn_delete"]
       }
@@ -78,21 +78,21 @@ const frameRouter = {
   path: "/iframe",
   meta: {
     icon: "monitor",
-    title: "menus.hsExternalPage",
+    title: "外部页面",
     rank: frame
   },
   children: [
     {
       path: "/iframe/external",
       meta: {
-        title: "menus.hsExternalDoc"
+        title: "文档外链"
       },
       children: [
         {
           path: "/external",
           name: "https://yiming_chang.gitee.io/pure-admin-doc",
           meta: {
-            title: "menus.externalLink",
+            title: "vue-pure-admin",
             roles: ["admin", "common"]
           }
         },
@@ -100,7 +100,7 @@ const frameRouter = {
           path: "/pureutilsLink",
           name: "https://pure-admin-utils.netlify.app/",
           meta: {
-            title: "menus.pureutilsLink",
+            title: "pure-admin-utils",
             roles: ["admin", "common"]
           }
         }
@@ -109,14 +109,14 @@ const frameRouter = {
     {
       path: "/iframe/embedded",
       meta: {
-        title: "menus.hsEmbeddedDoc"
+        title: "文档内嵌"
       },
       children: [
         {
           path: "/iframe/ep",
           name: "FrameEp",
           meta: {
-            title: "menus.hsEpDocument",
+            title: "element-plus",
             frameSrc: "https://element-plus.org/zh-CN/",
             keepAlive: true,
             roles: ["admin", "common"]
@@ -126,7 +126,7 @@ const frameRouter = {
           path: "/iframe/tailwindcss",
           name: "FrameTailwindcss",
           meta: {
-            title: "menus.hsTailwindcssDocument",
+            title: "tailwindcss",
             frameSrc: "https://tailwindcss.com/docs/installation",
             keepAlive: true,
             roles: ["admin", "common"]
@@ -136,7 +136,7 @@ const frameRouter = {
           path: "/iframe/vue3",
           name: "FrameVue",
           meta: {
-            title: "menus.hsVueDocument",
+            title: "vue3",
             frameSrc: "https://cn.vuejs.org/",
             keepAlive: true,
             roles: ["admin", "common"]
@@ -146,7 +146,7 @@ const frameRouter = {
           path: "/iframe/vite",
           name: "FrameVite",
           meta: {
-            title: "menus.hsViteDocument",
+            title: "vite",
             frameSrc: "https://cn.vitejs.dev/",
             keepAlive: true,
             roles: ["admin", "common"]
@@ -156,7 +156,7 @@ const frameRouter = {
           path: "/iframe/pinia",
           name: "FramePinia",
           meta: {
-            title: "menus.hsPiniaDocument",
+            title: "pinia",
             frameSrc: "https://pinia.vuejs.org/zh/index.html",
             keepAlive: true,
             roles: ["admin", "common"]
@@ -166,7 +166,7 @@ const frameRouter = {
           path: "/iframe/vue-router",
           name: "FrameRouter",
           meta: {
-            title: "menus.hsRouterDocument",
+            title: "vue-router",
             frameSrc: "https://router.vuejs.org/zh/",
             keepAlive: true,
             roles: ["admin", "common"]
@@ -181,7 +181,7 @@ const tabsRouter = {
   path: "/tabs",
   meta: {
     icon: "tag",
-    title: "menus.hstabs",
+    title: "标签页操作",
     rank: tabs
   },
   children: [
@@ -189,7 +189,7 @@ const tabsRouter = {
       path: "/tabs/index",
       name: "Tabs",
       meta: {
-        title: "menus.hstabs",
+        title: "标签页操作",
         roles: ["admin", "common"]
       }
     },

@@ -3,22 +3,16 @@ import Motion from "./utils/motion";
 import { useRouter } from "vue-router";
 import { message } from "@/utils/message";
 import { loginRules } from "./utils/rule";
-import phone from "./components/phone.vue";
 import TypeIt from "@/components/ReTypeit";
 import { debounce } from "@pureadmin/utils";
-import qrCode from "./components/qrCode.vue";
-import regist from "./components/regist.vue";
-import update from "./components/update.vue";
 import { useNav } from "@/layout/hooks/useNav";
 import { useEventListener } from "@vueuse/core";
 import type { FormInstance } from "element-plus";
-import { operates, thirdParty } from "./utils/enums";
 import { useLayout } from "@/layout/hooks/useLayout";
 import { useUserStoreHook } from "@/store/modules/user";
 import { initRouter, getTopMenu } from "@/router/utils";
 import { bg, avatar, illustration } from "./utils/static";
-import { ReImageVerify } from "@/components/ReImageVerify";
-import { ref, toRaw, reactive, watch, computed } from "vue";
+import { ref, toRaw, reactive, computed } from "vue";
 import { useRenderIcon } from "@/components/ReIcon/src/hooks";
 import { useDataThemeChange } from "@/layout/hooks/useDataThemeChange";
 
@@ -26,17 +20,13 @@ import dayIcon from "@/assets/svg/day.svg?component";
 import darkIcon from "@/assets/svg/dark.svg?component";
 import Lock from "@iconify-icons/ri/lock-fill";
 import User from "@iconify-icons/ri/user-3-fill";
-import Info from "@iconify-icons/ri/information-line";
 
 defineOptions({
   name: "Login"
 });
 
-const imgCode = ref("");
-const loginDay = ref(7);
 const router = useRouter();
 const loading = ref(false);
-const checked = ref(false);
 const disabled = ref(false);
 const ruleFormRef = ref<FormInstance>();
 const currentPage = computed(() => {
@@ -51,8 +41,7 @@ const { title } = useNav();
 
 const ruleForm = reactive({
   username: "admin",
-  password: "admin123",
-  verifyCode: ""
+  password: "admin123"
 });
 
 const onLogin = async (formEl: FormInstance | undefined) => {
@@ -92,16 +81,6 @@ const immediateDebounce: any = debounce(
 useEventListener(document, "keypress", ({ code }) => {
   if (code === "Enter" && !disabled.value && !loading.value)
     immediateDebounce(ruleFormRef.value);
-});
-
-watch(imgCode, value => {
-  useUserStoreHook().SET_VERIFYCODE(value);
-});
-watch(checked, bool => {
-  useUserStoreHook().SET_ISREMEMBERED(bool);
-});
-watch(loginDay, value => {
-  useUserStoreHook().SET_LOGINDAY(value);
 });
 </script>
 
@@ -170,57 +149,8 @@ watch(loginDay, value => {
               </el-form-item>
             </Motion>
 
-            <Motion :delay="200">
-              <el-form-item prop="verifyCode">
-                <el-input
-                  v-model="ruleForm.verifyCode"
-                  clearable
-                  placeholder="验证码"
-                  :prefix-icon="useRenderIcon('ri:shield-keyhole-line')"
-                >
-                  <template v-slot:append>
-                    <ReImageVerify v-model:code="imgCode" />
-                  </template>
-                </el-input>
-              </el-form-item>
-            </Motion>
-
             <Motion :delay="250">
               <el-form-item>
-                <div class="w-full h-[20px] flex justify-between items-center">
-                  <el-checkbox v-model="checked">
-                    <span class="flex">
-                      <select
-                        v-model="loginDay"
-                        :style="{
-                          width: loginDay < 10 ? '10px' : '16px',
-                          outline: 'none',
-                          background: 'none',
-                          appearance: 'none'
-                        }"
-                      >
-                        <option value="1">1</option>
-                        <option value="7">7</option>
-                        <option value="30">30</option>
-                      </select>
-                      天内免登录
-                      <el-tooltip
-                        effect="dark"
-                        placement="top"
-                        content="勾选并登录后，规定天数内无需输入用户名和密码会自动登入系统"
-                      >
-                        <IconifyIconOffline :icon="Info" class="ml-1" />
-                      </el-tooltip>
-                    </span>
-                  </el-checkbox>
-                  <el-button
-                    link
-                    type="primary"
-                    @click="useUserStoreHook().SET_CURRENTPAGE(4)"
-                  >
-                    忘记密码?
-                  </el-button>
-                </div>
                 <el-button
                   class="w-full mt-4"
                   size="default"
@@ -233,52 +163,7 @@ watch(loginDay, value => {
                 </el-button>
               </el-form-item>
             </Motion>
-
-            <Motion :delay="300">
-              <el-form-item>
-                <div class="w-full h-[20px] flex justify-between items-center">
-                  <el-button
-                    v-for="(item, index) in operates"
-                    :key="index"
-                    class="w-full mt-4"
-                    size="default"
-                    @click="useUserStoreHook().SET_CURRENTPAGE(index + 1)"
-                  >
-                    {{ item.title }}
-                  </el-button>
-                </div>
-              </el-form-item>
-            </Motion>
           </el-form>
-
-          <Motion v-if="currentPage === 0" :delay="350">
-            <el-form-item>
-              <el-divider>
-                <p class="text-gray-500 text-xs">第三方登录</p>
-              </el-divider>
-              <div class="w-full flex justify-evenly">
-                <span
-                  v-for="(item, index) in thirdParty"
-                  :key="index"
-                  :title="item.title"
-                >
-                  <IconifyIconOnline
-                    :icon="`ri:${item.icon}-fill`"
-                    width="20"
-                    class="cursor-pointer text-gray-500 hover:text-blue-400"
-                  />
-                </span>
-              </div>
-            </el-form-item>
-          </Motion>
-          <!-- 手机号登录 -->
-          <phone v-if="currentPage === 1" />
-          <!-- 二维码登录 -->
-          <qrCode v-if="currentPage === 2" />
-          <!-- 注册 -->
-          <regist v-if="currentPage === 3" />
-          <!-- 忘记密码 -->
-          <update v-if="currentPage === 4" />
         </div>
       </div>
     </div>

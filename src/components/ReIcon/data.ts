@@ -3535,7 +3535,6 @@ export const IconJson = {
     "pump-medical",
     "pump-soap",
     "puzzle-piece",
-    "qrcode",
     "question",
     "question-circle",
     "quidditch",

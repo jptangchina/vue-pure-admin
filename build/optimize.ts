@@ -13,7 +13,6 @@ const include = [
   "pinia",
   "typeit",
   "swiper",
-  "qrcode",
   "intro.js",
   "vue-types",
   "js-cookie",
